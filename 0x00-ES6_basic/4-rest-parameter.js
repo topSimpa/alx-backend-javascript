@@ -1,8 +1,3 @@
-export default function returnHowManyArguments (...param) {
-  let count = 0;
-  let i;
-  for (i in param) {
-    count = count + 1;
-  }
-  return count;
+export default function returnHowManyArguments(...param) {
+  return (param.length);
 }
