@@ -9,7 +9,7 @@ export default function getBudgetForCurrentYear(income, gdp, capita) {
 
   budget["income-" + year] = income;
   budget["gddp-" + year] = gdp;
-  budget["capita-"year] = capita;
+  budget["capita-" + year] = capita;
 
   return budget;
 }
