@@ -9,6 +9,7 @@ export default class EVCar extends Car {
 
   // eslint-disable-next-line class-methods-use-this
   cloneCar() {
-    return new super.constructor[Symbol.species]();
+    const n = super.constructor[Symbol.species];
+    return new n();
   }
 }
