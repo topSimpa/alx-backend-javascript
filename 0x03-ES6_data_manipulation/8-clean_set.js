@@ -9,7 +9,7 @@
 export default function (set, startString) {
   const len = startString.length;
   let str = '';
-  for (const el of set) {
+  for (let el of set) {
     if (startString === el.slice(0, len) && len > 0) {
       str += `${el.slice(len)}-`;
     }
