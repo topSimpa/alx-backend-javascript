@@ -7,7 +7,7 @@
  * @returns {String}
  */
 
-export default function (set, startString) {
+export default function (set, startString = '') {
   const len = startString.length;
   let str = '';
 
