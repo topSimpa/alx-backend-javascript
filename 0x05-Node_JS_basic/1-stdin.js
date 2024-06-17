@@ -9,6 +9,8 @@ r.question('Welcome to Holberton School, what is your name?\n', (name) => {
   r.close();
 });
 
-r.on('close', () => {
-  console.log('This important software is now closing');
-});
+if (!r.input.isTTY) {
+  r.on('close', () => {
+    console.log('This important software is now closing');
+  });
+}
