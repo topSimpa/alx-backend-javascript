@@ -19,7 +19,7 @@ function studentsInfo(filepath) {
       return { totNum: students.length, cs: csStudent, swe: sweStudent };
     })
     .catch(() => {
-      throw new Error('Cannot Load the database');
+      throw new Error('Cannot load the database');
     });
 }
 
