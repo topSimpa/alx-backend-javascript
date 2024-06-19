@@ -39,7 +39,7 @@ const app = http.createServer((req, res) => {
         res.end();
       })
       .catch((error) => {
-        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.writeHead(501, { 'Content-Type': 'text/html' });
         res.write(error.message);
         res.end();
       });
