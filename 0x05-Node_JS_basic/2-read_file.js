@@ -21,7 +21,7 @@ function countStudents(filePath) {
     console.log(`Number of students in CS: ${csStudent.length}. List: ${csStudent.join(', ')}`);
     console.log(`Number of students in SWE: ${sweStudent.length}. List: ${sweStudent.join(', ')}`);
   } catch (err) {
-    throw new Error('Cannot Load the database');
+    throw new Error('Cannot load the database');
   }
 }
 
