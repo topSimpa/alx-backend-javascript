@@ -1,12 +1,12 @@
 const calcul = require('./2-calcul_chai');
-let expect;
+const { expect } = require('chai')
 
 describe('rounding of a number', function () {
 
-    before (async function() {
-        const Chai = await import('chai');
-        expect = Chai.expect;
-    });
+   // before (async function() {
+       // const Chai = await import('chai');
+       // expect = Chai.expect;
+    //});
 
     describe('SUM', function () {
         it('correct output-no decimal', function () {
