@@ -4,8 +4,8 @@ let expect;
 describe('rounding of a number', function () {
 
     before (async function() {
-        const chai = await import('chai');
-        expect = chai.expect;
+        const Chai = await import('chai');
+        expect = Chai.expect;
     });
 
     describe('SUM', function () {
