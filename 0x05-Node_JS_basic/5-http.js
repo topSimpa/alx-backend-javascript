@@ -32,14 +32,14 @@ const app = http.createServer((req, res) => {
     studentsInfo(process.argv[2])
       .then((info) => {
         res.writeHead(200, { 'Content-Type': 'text/html' });
-        res.write('This is the list of our students\n');
         res.write(`Number of students: ${info.totNum}\n`);
         res.write(`Number of students in CS: ${info.cs.length}. List: ${info.cs.join(', ')}\n`);
         res.write(`Number of students in SWE: ${info.swe.length}. List: ${info.swe.join(', ')}`);
         res.end();
       })
       .catch((error) => {
-        res.writeHead(501, { 'Content-Type': 'text/html' });
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+	res.write('This is the list of our students\n');
         res.write(error.message);
         res.end();
       });
