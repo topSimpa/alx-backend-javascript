@@ -43,7 +43,8 @@ app.get('/students', (req, res) => {
       res.end();
     })
     .catch((error) => {
-      res.writeHead(500, { 'Content-Type': 'text/html' });
+      res.writeHead(200, { 'Content-Type': 'text/html' });
+      res.write('This is the list of our students\n');
       res.write(error.message);
       res.end();
     });
