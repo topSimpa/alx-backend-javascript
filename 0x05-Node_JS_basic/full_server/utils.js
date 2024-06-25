@@ -20,8 +20,6 @@ function readDatabase(filePath) {
             sweStudent.push(values[0]);
           }
         }
-        csStudent.sort((a, b) => (a.toLowerCase() < b.toLowerCase() ? -1 : 1));
-        sweStudent.sort((a, b) => (a.toLowerCase() < b.toLowerCase() ? -1 : 1));
         const studentData = { CS: csStudent, SWE: sweStudent };
 
         resolve(studentData);
