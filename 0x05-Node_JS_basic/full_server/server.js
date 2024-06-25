@@ -6,5 +6,4 @@ const routes = require('./routes/index');
 app.use('/', routes);
 app.listen(1245);
 
-
-module.exports = app
+module.exports = app;
