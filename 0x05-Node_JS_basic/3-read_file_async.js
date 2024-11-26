@@ -18,8 +18,7 @@ async function countStudents(path) {
     readFile(path, { encoding: 'utf-8', flag: 'r' }, (err, data) => {
       if (err) {
         if (err.code === 'ENOENT') {
-          err = new Error('Cannot load the database');
-          reject(err)
+          reject(new Error('Cannot load the database'));
         } else {
           console.log(err);
         }
