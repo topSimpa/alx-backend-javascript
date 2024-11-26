@@ -33,7 +33,7 @@ function countStudents(path) {
     console.log(`Number of students: ${count}`);
     // eslint-disable-next-line guard-for-in
     for (const field in courseCount) {
-      console.log(`Number of student in ${field}: ${courseCount[field].count}. List: ${courseCount[field].names}`);
+      console.log(`Number of students in ${field}: ${courseCount[field].count}. List: ${courseCount[field].names}`);
     }
   } catch (error) {
     if (error.code === 'ENOENT') {
