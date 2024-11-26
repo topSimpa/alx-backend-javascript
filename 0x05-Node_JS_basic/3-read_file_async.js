@@ -5,7 +5,7 @@
 
 const { readFile } = require('fs');
 
-function countStudents(path) {
+async function countStudents(path) {
 /**
 * attempts to read the file in path synchronously
 * @param {string} path - address of file to be read
@@ -14,35 +14,39 @@ function countStudents(path) {
 
   let count = 0;
   const courseCount = {};
-  readFile(path, { encoding: 'utf-8', flag: 'r' }, (err, data) => {
-    if (err) {
-      if (err.code === 'ENOENT') {
-        throw new Error('Cannot load the database');
-      } else {
-        console.log(err);
-      }
-    } else if (data) {
-      const file = data.split('\n');
-      file.forEach((line, ind) => {
-        if (line !== '' && ind !== 0) {
-          count += 1;
-          const linePart = line.split(',');
-          if (linePart[3] in courseCount) {
-            courseCount[linePart[3]].count += 1;
-            courseCount[linePart[3]].names.push(` ${linePart[0]}`);
-          } else {
-            courseCount[linePart[3]] = {};
-            courseCount[linePart[3]].count = 1;
-            courseCount[linePart[3]].names = [linePart[0]];
-          }
+  return new Promise((resolve, reject) => {
+    readFile(path, { encoding: 'utf-8', flag: 'r' }, (err, data) => {
+      if (err) {
+        if (err.code === 'ENOENT') {
+          throw new Error('Cannot load the database');
+        } else {
+          console.log(err);
         }
-      });
-      console.log(`Number of students: ${count}`);
-      // eslint-disable-next-line guard-for-in
-      for (const field in courseCount) {
-        console.log(`Number of students in ${field}: ${courseCount[field].count}. List: ${courseCount[field].names}`);
+        reject();
+      } else if (data) {
+        const file = data.split('\n');
+        file.forEach((line, ind) => {
+          if (line !== '' && ind !== 0) {
+            count += 1;
+            const linePart = line.split(',');
+            if (linePart[3] in courseCount) {
+              courseCount[linePart[3]].count += 1;
+              courseCount[linePart[3]].names.push(` ${linePart[0]}`);
+            } else {
+              courseCount[linePart[3]] = {};
+              courseCount[linePart[3]].count = 1;
+              courseCount[linePart[3]].names = [linePart[0]];
+            }
+          }
+        });
+        console.log(`Number of students: ${count}`);
+        // eslint-disable-next-line guard-for-in
+        for (const field in courseCount) {
+          console.log(`Number of students in ${field}: ${courseCount[field].count}. List: ${courseCount[field].names}`);
+        }
+        resolve();
       }
-    }
+    });
   });
 }
 module.exports = countStudents;
