@@ -21,7 +21,6 @@ async function countStudents() {
     readFile(database, { encoding: 'utf-8', flag: 'r' }, (err, data) => {
       if (err) {
         if (err.code === 'ENOENT') {
-          console.log('entered here');
           reject(new Error('Cannot load the database'));
         } else {
           console.log(err);
@@ -62,7 +61,7 @@ const app = createServer((req, res) => {
         }
         res.end();
       }).catch((err) => {
-        console.log(err);
+        res.end(err.message);
       });
   }
 });
