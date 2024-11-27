@@ -13,6 +13,6 @@ const studentController = new StudentController();
 
 routes.get('/', appController.getHomepage);
 routes.get('/students', studentController.getAllStudents);
-routes.get('/students:major', studentController.getAllStudentsByMajor);
+routes.get('/students/:major', studentController.getAllStudentsByMajor);
 
 module.exports = routes;

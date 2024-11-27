@@ -3,7 +3,7 @@
 * @author Simpa
 */
 
-import { readDatabase } from '../utils';
+import readDatabase from '../utils';
 
 const database = process.argv[2];
 
@@ -51,7 +51,7 @@ export default class StudentController {
     * @param {HttpRequest} req - the request event
     */
 
-    if (req.params.major in ['SWE', 'CS']) {
+    if (['SWE', 'CS'].includes(req.params.major)) {
       readDatabase(database).then((courseCount) => {
         res.status(200);
         res.send(`List: ${courseCount[req.params.major]}`);
