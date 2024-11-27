@@ -50,11 +50,11 @@ async function countStudents() {
 const app = createServer((req, res) => {
   if (req.url === '/') {
     res.end('Hello Holberton School!');
+
   } else if (req.url === '/students') {
+      res.write(`Number of students: ${count}`);
     countStudents()
       .then(([courseCount, count]) => {
-        res.write('This is the list of our students');
-        res.write(`\nNumber of students: ${count}`);
         // eslint-disable-next-line guard-for-in
         for (const field in courseCount) {
           res.write(`\nNumber of students in ${field}: ${courseCount[field].count}. List: ${courseCount[field].names}`);
