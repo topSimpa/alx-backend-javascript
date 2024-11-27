@@ -51,7 +51,7 @@ const app = createServer((req, res) => {
   if (req.url === '/') {
     res.end('Hello Holberton School!');
   } else if (req.url === '/students') {
-      res.write('This is the list of our students\n');
+    res.write('This is the list of our students\n');
     countStudents()
       .then(([courseCount, count]) => {
         res.write(`Number of students: ${count}`);
