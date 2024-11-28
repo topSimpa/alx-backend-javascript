@@ -3,12 +3,23 @@
 * @author Simpa
 */
 
-import  assert from 'assert';
+import assert from 'assert';
 import calculateNumber from './0-calcul';
 
-assert.equal(calculateNumber(2, 3), 5);
-assert.equal(calculateNumber(2.4, 5.2), 7);
-assert.equal(calculateNumber(2.3, 5.7), 8);
-assert.equal(calculateNumber(2.7, 8.5), 12);
-assert.equal(calculateNumber(3, 2.3), 5);
-assert.equal(calculateNumber(3, 4.7), 8);
+describe('rounding of a number', () => {
+  it('correct output-no decimal', () => {
+    assert.equal(calculateNumber(5, 6), 11);
+  });
+
+  it('correct output-decimal at 5', () => {
+    assert.equal(calculateNumber(5.5, 5.5), 12);
+  });
+
+  it('correct output-decimal below 5', () => {
+    assert.equal(calculateNumber(5.2, 5.4), 10);
+  });
+
+  it('correct output-decimal above and below', () => {
+    assert.equal(calculateNumber(5.7, 5.1), 11);
+  });
+});
