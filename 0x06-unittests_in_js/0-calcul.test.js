@@ -3,7 +3,7 @@
 * @author Simpa
 */
 
-import { assert } from 'assert';
+import  assert from 'assert';
 import calculateNumber from './0-calcul';
 
 assert.equal(calculateNumber(2, 3), 5);
