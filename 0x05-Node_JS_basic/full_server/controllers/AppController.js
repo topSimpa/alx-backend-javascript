@@ -9,7 +9,7 @@ export default class AppController {
    */
 
   // eslint-disable-next-line class-methods-use-this
-  getHomepage(request, response) {
+  static getHomepage(request, response) {
     response.status(200).send('Hello Holberton School!');
   }
 }

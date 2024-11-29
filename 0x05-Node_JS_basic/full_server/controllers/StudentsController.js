@@ -13,7 +13,7 @@ export default class StudentsController {
   */
 
   // eslint-disable-next-line class-methods-use-this
-  getAllStudents(req, res) {
+  static getAllStudents(req, res) {
     /**
     * retrieve all the student details in the database
     * @summary control the /students endpoint
@@ -43,7 +43,7 @@ export default class StudentsController {
   }
 
   // eslint-disable-next-line class-methods-use-this
-  getAllStudentsByMajor(req, res) {
+  static getAllStudentsByMajor(req, res) {
     /**
     * retrieve all the student in a paticular major
     * @summary control the /students:major endpoint

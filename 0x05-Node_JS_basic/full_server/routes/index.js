@@ -8,11 +8,9 @@ import AppController from '../controllers/AppController';
 import StudentsController from '../controllers/StudentsController';
 
 const routes = express.Router();
-const appController = new AppController();
-const studentController = new StudentsController();
 
-routes.get('/', appController.getHomepage);
-routes.get('/students', studentController.getAllStudents);
-routes.get('/students/:major', studentController.getAllStudentsByMajor);
+routes.get('/', AppController.getHomepage);
+routes.get('/students', StudentsController.getAllStudents);
+routes.get('/students/:major', StudentsController.getAllStudentsByMajor);
 
 module.exports = routes;
