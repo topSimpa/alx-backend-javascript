@@ -5,7 +5,7 @@
 
 
 const Utils = require('./utils');
-const sendPaymentRequestToApi = require('./3-payment')
+const sendPaymentRequestToApi = require('./4-payment')
 //const utils = new Utils();
 
 const sinon = require('sinon');
