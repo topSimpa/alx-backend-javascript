@@ -19,6 +19,10 @@ describe('sendPaymentRequestToApi', function() {
         sendPaymentRequestToApi(100, 20);
     })
 
+    after( function () {
+        spy.restore();
+    })
+    
     it("test if calculateNumber was called", function() {    
         expect(spy.calledOnce).to.be.true;
     })
@@ -26,5 +30,6 @@ describe('sendPaymentRequestToApi', function() {
     it("test what parameters calculateNumber was called with", function() {
         expect(spy.calledWith("SUM", 100, 20)).to.be.true;
     })
+     
     
 })
