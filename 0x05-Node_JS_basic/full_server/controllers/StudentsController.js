@@ -5,7 +5,7 @@
 
 import readDatabase from '../utils';
 
-const database = process.argv[2];
+const database = 'database.csv'
 
 export default class StudentsController {
   /**
