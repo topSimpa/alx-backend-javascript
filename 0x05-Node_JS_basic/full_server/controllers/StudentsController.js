@@ -35,8 +35,7 @@ export default class StudentsController {
       res.end();
     }).catch((err) => {
       res.status(500);
-      res.write('This is the list of our students\n');
-      res.write(err.message);
+      res.send(err.message);
       res.end();
     });
   }
