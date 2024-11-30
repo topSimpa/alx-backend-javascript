@@ -5,8 +5,6 @@
 
 import readDatabase from '../utils';
 
-const database = 'database.csv'
-
 export default class StudentsController {
   /**
   * Controls the /student responses
@@ -20,8 +18,7 @@ export default class StudentsController {
     * @param {HttpResponse} res - the response event
     * @param {HttpRequest} req - the request event
     */
-    console.log(`this is the database ${database}`);
-    readDatabase(database).then((courseCount) => {
+    readDatabase(process.argv[2]).then((courseCount) => {
       const sortedDatabase = Object.keys(courseCount)
         .sort()
         .reduce((newDict, field) => {
@@ -29,7 +26,7 @@ export default class StudentsController {
           newDict[field] = courseCount[field];
           return newDict;
         }, {});
-      res.status(200)
+      res.status(200);
       res.write('This is the list of our students');
       // eslint-disable-next-line guard-for-in
       for (const field in courseCount) {
@@ -37,9 +34,9 @@ export default class StudentsController {
       }
       res.end();
     }).catch((err) => {
-      res.status(500)
-      res.write('This is the list of our students\n')
-      res.write(err.message)
+      res.status(500);
+      res.write('This is the list of our students\n');
+      res.write(err.message);
       res.end();
     });
   }
@@ -54,7 +51,7 @@ export default class StudentsController {
     */
 
     if (['SWE', 'CS'].includes(req.params.major)) {
-      readDatabase(database).then((courseCount) => {
+      readDatabase(process.argv[2]).then((courseCount) => {
         res.status(200).send(`List: ${courseCount[req.params.major]}`);
       }).catch((err) => {
         res.status(500).send(err.message);
