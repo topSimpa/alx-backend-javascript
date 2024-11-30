@@ -20,6 +20,7 @@ export default class StudentsController {
     * @param {HttpResponse} res - the response event
     * @param {HttpRequest} req - the request event
     */
+    console.log(`this is the database ${database}`);
     readDatabase(database).then((courseCount) => {
       const sortedDatabase = Object.keys(courseCount)
         .sort()
@@ -28,7 +29,8 @@ export default class StudentsController {
           newDict[field] = courseCount[field];
           return newDict;
         }, {});
-      res.status(200).write('This is the list of our students');
+      res.status(200)
+      res.write('This is the list of our students');
       // eslint-disable-next-line guard-for-in
       for (const field in courseCount) {
         res.write(`\nNumber of students in ${field}: ${sortedDatabase[field].length}. List: ${sortedDatabase[field]}`);
@@ -36,9 +38,9 @@ export default class StudentsController {
       res.end();
     }).catch((err) => {
       res.status(500)
-        .write('This is the list of our students\n')
-        .write(err.message)
-        .end();
+      res.write('This is the list of our students\n')
+      res.write(err.message)
+      res.end();
     });
   }
 
